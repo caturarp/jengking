@@ -12,8 +12,8 @@ import (
 
 func main() {
 	http.HandleFunc("/webhook", webHook)
-	log.Println("Listening for webhooks on port 8080...")
-	log.Println(http.ListenAndServe(":8080", nil))
+	log.Println("Listening for webhooks on port 5555...")
+	log.Println(http.ListenAndServe(":5555", nil))
 }
 
 func webHook(w http.ResponseWriter, r *http.Request) {
