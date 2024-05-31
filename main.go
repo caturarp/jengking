@@ -25,13 +25,13 @@ func webHook(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	fmt.Printf("%+v\n", payload)
 	// Validate the webhook event type
 	if r.Header.Get("X-GitHub-Event") != "push" {
 		http.Error(w, "Invalid event type", http.StatusBadRequest)
 		log.Println("Invalid event type:", r.Header.Get("X-GitHub-Event"))
 		return
 	}
-	fmt.Printf("%+v\n", payload)
 }
 
 func runBuildScript(branchName, repoName string) error {
